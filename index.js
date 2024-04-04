@@ -32,11 +32,12 @@ const makePostRequest = async (orderId) => {
 };
 
 const executeRequests = async () => {
+  let count = 0;
   for (const orderId of orderIds) {
     await makePostRequest(orderId);
+    count++;
   }
+  console.log(`total number of orders processed: ${count}`);
 };
 
-// executeRequests();
-
-console.log(orderIds.length);
+executeRequests();

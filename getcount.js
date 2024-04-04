@@ -15,7 +15,6 @@ async function getCount() {
     };
 
     const { resources: count } = await client.database(databaseId).container(containerId).items.query(querySpec).fetchAll();
-    console.log(count);
     return count[0];
   } catch (error) {
     console.error("Error querying count:", error);
