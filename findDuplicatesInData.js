@@ -15,5 +15,5 @@ function findDuplicatesInData(orderIds) {
   return Array.from(duplicates);
 }
 
-const duplicates = findDuplicates(orderIds);
+const duplicates = findDuplicatesInData(orderIds);
 console.log(duplicates.length > 0 ? `Repeating numbers: ${duplicates}` : "No repeating numbers.");
