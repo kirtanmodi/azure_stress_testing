@@ -13,7 +13,6 @@ async function deleteItemsByPartitionKey(orderIds) {
   const container = client.database(databaseId).container(containerId);
   let count = 0;
   for (const orderId of orderIds) {
-    // Query to find items by orderId (partition key)
     const querySpec = {
       query: "SELECT * FROM c WHERE c.orderId = @orderId",
       parameters: [{ name: "@orderId", value: orderId.toString() }],
@@ -23,7 +22,6 @@ async function deleteItemsByPartitionKey(orderIds) {
 
     for (const item of items) {
       try {
-        // Assuming 'id' is the attribute for the item's unique identifier
         const { resource: result } = await container.item(item.id, orderId.toString()).delete();
         count++;
         console.log(`Deleted item with id: ${item.id} in partition orderId: ${orderId}`);
