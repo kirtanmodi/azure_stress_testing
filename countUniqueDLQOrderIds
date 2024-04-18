@@ -17,8 +17,8 @@ function extractUniqueOrderIds(inputString) {
 	if (!uniqueIds.size) console.log("No matches found, check regex and input string format.");
 
 	return {
+		ids: Array.from(uniqueIds).sort(),
 		count: uniqueIds.size,
-		ids: Array.from(uniqueIds).sort()
 	}
 }
 
