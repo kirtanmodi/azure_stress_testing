@@ -1,0 +1,26 @@
+const data = `
+Dead letter message received: "{\"producer\":\"stores/9x4ctn3ioy\",\"hash\":\"76a72759400fb3c5362ae589be31d131fa30b7b1\",\"created_at\":1713456024,\"store_id\":\"1001710939\",\"scope\":\"store/order/created\",\"data\":{\"type\":\"order\",\"id\":1080339}}"
+
+`;
+
+
+
+function extractUniqueOrderIds(inputString) {
+	const regex = /"id\\?":\\?"?(\d+)/g;
+	const uniqueIds = new Set();
+	let match;
+
+	while ((match = regex.exec(inputString)) !== null) {
+		uniqueIds.add(match[1]);
+	}
+
+	if (!uniqueIds.size) console.log("No matches found, check regex and input string format.");
+
+	return {
+		count: uniqueIds.size,
+		ids: Array.from(uniqueIds).sort()
+	}
+}
+
+const uniqueOrderIds = extractUniqueOrderIds(data);
+console.log('Unique Order IDs:', uniqueOrderIds);
