@@ -33,4 +33,11 @@ async function deleteItemsByPartitionKey(orderIds) {
   console.log(`Total number of items deleted: ${count}`);
 }
 
+let orderArr = [];
+
+// from 1079506 to 1079589
+// for (let i = 1079056; i <= 1079589; i++) {
+//   orderArr.push(i);
+// }
+
 deleteItemsByPartitionKey(orderIds);
