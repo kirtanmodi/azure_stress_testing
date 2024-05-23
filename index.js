@@ -9,14 +9,10 @@ const makePostRequest = async (orderId) => {
     hash: "ddaf7acd673e33ffed033573b20f1327cf229894",
     created_at: 1701827190,
     store_id: process.env.STORE_ID,
-    scope: "store/order/statusUpdated",
+    scope: "store/order/created",
     data: {
       type: "order",
       id: orderId,
-      status: {
-        previous_status_id: 0,
-        new_status_id: 11,
-      },
     },
   };
 
